@@ -19,3 +19,9 @@ the same name as the resource that you passed in.
 
 `showitems` vs. `showItem`
 
+Implementing the remaining CRUD operations.
+
+Currently supports:
+
+`index`
+`show`
