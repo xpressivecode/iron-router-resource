@@ -3,13 +3,18 @@ Package.describe({
 });
 
 Package.on_use(function(api){
+   Npm.depends({
+       "inflection": "1.2.6"
+   });
+
    api.use([
        'iron-router',
        'underscore'
-   ], ['client', 'server']);
+   ], ['client']);
 
    api.add_files([
        'license.js',
-       'lib/iron-router-resource.js'
-   ], ['client', 'server']);
+       'lib/iron-router-resource.js',
+       '.npm/package/node_modules/inflection/lib/inflection.js'
+   ], ['client']);
 });

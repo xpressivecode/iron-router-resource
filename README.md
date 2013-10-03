@@ -4,6 +4,8 @@ Extends [Iron-Router](https://github.com/EventedMind/iron-router), allowing you 
 
 #Basics
 
+Assumes that you provide the pluralized version of your resource, `items` not `item`.
+
 Assuming you have a collection called `items` you would call:
 
 ```
@@ -12,27 +14,18 @@ Router.mapResource('items');
 
 This would generate routes for index, show, edit, etc. all pointing to an `itemsController` with an action of the appropriate name.
 
-The routes currently look like the following:
+The routes currently look like the following (note the plural/single usage):
 
-name: {resource}, path: {resource}
+name: {resources}, path: /{resources}
 
-name: show{resource}, path: {resource}/:id, action: show
+name: show-{resource}, path: /{resources}/:id, action: show
 
-name: new{resource}, path: {resource}/new, action: new
+name: new-{resource}, path: /{resources}/new, action: new
 
-name: create{resource}, path: {resource}/create, action: create
+name: create-{resource}, path: /{resources}/create, action: create
 
-name: edit{resource}, path: {resource}/edit/:id, action: edit
+name: edit-{resource}, path: /{resources}/edit/:id, action: edit
 
-name: delete{resource}, path: {resource}/delete/:id, action: delete
+name: delete-{resource}, path: /{resources}/delete/:id, action: delete
 
-name: destroy{resource}, path: {resource}/destroy/:id, action: destroy
-
-
-
-#TODO
-
-Singular vs. Pluralization still needs to be implemented so that your named routes are generated as expected. Right now your routes will have
-the same name as the resource that you passed in.
-
-`showitems` vs. `showItem`
+name: destroy-{resource}, path: /{resources}/destroy/:id, action: destroy
