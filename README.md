@@ -9,7 +9,11 @@ Assumes that you provide the pluralized version of your resource, `items` not `i
 Assuming you have a collection called `items` you would call:
 
 ```
-Router.mapResource('items');
+Router.map(function(){
+    this.route(...); //regular route
+
+    this.resource('items'); //resource route which will create crud routes for you based on the resource name
+});
 ```
 
 This would generate routes for index, show, edit, etc. all pointing to an `itemsController` with an action of the appropriate name.
