@@ -22,14 +22,25 @@ The routes currently look like the following (note the plural/single usage):
 
 name: {resources}, path: /{resources}
 
-name: show-{resource}, path: /{resources}/:id, action: show
+name: show{resource}, path: /{resources}/:id, action: show
 
-name: new-{resource}, path: /{resources}/new, action: new
+name: new{resource}, path: /{resources}/new, action: new
 
-name: create-{resource}, path: /{resources}/create, action: create
+name: create{resource}, path: /{resources}/create, action: create
 
-name: edit-{resource}, path: /{resources}/edit/:id, action: edit
+name: edit{resource}, path: /{resources}/edit/:id, action: edit
 
-name: delete-{resource}, path: /{resources}/delete/:id, action: delete
+name: delete{resource}, path: /{resources}/delete/:id, action: delete
 
-name: destroy-{resource}, path: /{resources}/destroy/:id, action: destroy
+name: destroy{resource}, path: /{resources}/destroy/:id, action: destroy
+
+#Example routes
+```
+Router.routes.items
+Router.routes.editItem
+Router.routes.showItem
+Router.routes.newItem
+Router.routes.createItem
+Router.routes.deleteItem
+Router.routes.destroyItem
+```
