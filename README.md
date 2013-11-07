@@ -24,17 +24,17 @@ The routes currently look like the following (note the plural/single usage):
 
 name: {resources}, path: /{resources}
 
-name: show{resource}, path: /{resources}/:id, action: show
+name: show{resource}, path: /{resources}/:_id, action: show
 
 name: new{resource}, path: /{resources}/new, action: new
 
 name: create{resource}, path: /{resources}/create, action: create
 
-name: edit{resource}, path: /{resources}/edit/:id, action: edit
+name: edit{resource}, path: /{resources}/edit/:_id, action: edit
 
-name: delete{resource}, path: /{resources}/delete/:id, action: delete
+name: delete{resource}, path: /{resources}/delete/:_id, action: delete
 
-name: destroy{resource}, path: /{resources}/destroy/:id, action: destroy
+name: destroy{resource}, path: /{resources}/destroy/:_id, action: destroy
 
 # Auto Create Controller
 You can pass in an option to have the package automatically create the associated controller for you via:
@@ -57,17 +57,17 @@ tasksController = RouteController.extend({
     },
 
     show: function(){
-        this.data = Tasks.findOne(this.params.id);
+        this.data = Tasks.findOne(this.params._id);
         return this.render(this.route.name);
     },
 
     edit: function(){
-        this.data = Tasks.findOne(this.params.id);
+        this.data = Tasks.findOne(this.params._id);
         return this.render(this.route.name);
     },
 
     delete: function(){
-        this.data = Tasks.findOne(this.params.id);
+        this.data = Tasks.findOne(this.params._id);
         return this.render(this.route.name);
     }
 });
