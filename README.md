@@ -1,12 +1,12 @@
 # Breaking changes in version 2.* (from 1.*)
 
-1. The create controller argument is now part of an args object to help make it more extensible for future updates. You now need to call
+    The create controller argument is now part of an args object to help make it more extensible for future updates. You now need to call
 
 ```
 this.resource('items', { create_controller: true });
 ```
 
-2. In order to accomodate some of the changes that have occured to iron-router (version 0.6.1 at this time), a few things have changed. 
+    In order to accomodate some of the changes that have occured to iron-router (version 0.6.1 at this time), a few things have changed. 
 
     The context of "this" can not be set to an object or an array (see [bug](https://github.com/EventedMind/iron-router/issues/234)). Due to this, your data will be represented by a `Model` object. 
 
