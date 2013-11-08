@@ -18,3 +18,15 @@ Tinytest.add('Iron Router Resource - mapping should correctly name routes [singu
     test.isTrue(Router.routes.deleteItem !== null, 'expected a route called "deleteItem" to exist');
     test.isTrue(Router.routes.destroyItem !== null, 'expected a route called "destroyItem" to exist');
 });
+
+Tinytest.add('Iron Router Resource - should not create a controller unless requested', function(test){
+   test.isFalse(window["itemsController"], 'did not expect a controller to be created'); 
+});
+
+Tinytest.add('Iron Router Resource - should create controller when specified', function(test){
+   Router.map(function(){
+      this.resource('tasks', { create_controller: true }); 
+   });
+    
+    test.isTrue(window["tasksController"], 'expected tasksController to exist');
+});

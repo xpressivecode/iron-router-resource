@@ -1,3 +1,15 @@
+# Breaking changes in version 2.* (from 1.*)
+
+1. The create controller argument is now part of an args object to help make it more extensible for future updates. You now need to call
+
+```
+this.resource('items', { create_controller: true });
+```
+
+2. In order to accomodate some of the changes that have occured to iron-router (version 0.6.1 at this time), a few things have changed. 
+
+    The context of "this" can not be set to an object or an array (see [bug](https://github.com/EventedMind/iron-router/issues/234)). Due to this, your data will be represented by a `Model` object. 
+
 # Iron Router Resource
 
 Extends [Iron-Router](https://github.com/EventedMind/iron-router), allowing you to quickly add standard CRUD routes for your resources.
@@ -40,7 +52,7 @@ name: destroy{resource}, path: /{resources}/destroy/:_id, action: destroy
 You can pass in an option to have the package automatically create the associated controller for you via:
 
 ```
-this.resource('tasks', true);
+this.resource('tasks', { create_controller: true });
 ```
 
 It will generate a controller that looks like:
@@ -48,7 +60,9 @@ It will generate a controller that looks like:
 ```
 tasksController = RouteController.extend({
    index: function(){
-       this.data = Tasks.find({}).fetch();
+       this.setData({
+            Model: Tasks.find({}).fetch()
+        });
        return this.render(this.route.name);
    },
 
@@ -57,17 +71,23 @@ tasksController = RouteController.extend({
     },
 
     show: function(){
-        this.data = Tasks.findOne(this.params._id);
+        this.setData({
+            Model: Tasks.findOne(this.params._id)
+        });
         return this.render(this.route.name);
     },
 
     edit: function(){
-        this.data = Tasks.findOne(this.params._id);
+        this.setData({
+            Model: Tasks.findOne(this.params._id)
+        });
         return this.render(this.route.name);
     },
 
     delete: function(){
-        this.data = Tasks.findOne(this.params._id);
+        this.setData({ 
+            Model: Tasks.findOne(this.params._id)
+        });
         return this.render(this.route.name);
     }
 });
