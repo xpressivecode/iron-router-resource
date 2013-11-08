@@ -14,7 +14,7 @@ The context of "this" can not be set to an object or an array (see [bug](https:/
 
 Extends [Iron-Router](https://github.com/EventedMind/iron-router), allowing you to quickly add standard CRUD routes for your resources.
 
-There is now the option to have the associated controller created for you by. See below for details.
+There is now the option to have the associated controller created for you. See below for details.
 
 # Basics
 
