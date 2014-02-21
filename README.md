@@ -1,4 +1,4 @@
-# Update - version 2.0.1
+# Update - version 2.1
 
 As I do maintain other iron-router extensions, I wanted to make sure that iron-router-resource could benefit from them. 
 
@@ -16,7 +16,7 @@ Router.map(function(){
 
 This will just help to facilitate future extensibility later on, should this package continue to be used. 
 
-# Breaking change in version 2.0.1
+# Breaking change in version 2.1
 
 The `create_controller` argument, is now `createController`. I'm not sure why I ever had it the previous way, and I'm sorry to anyone that has to spend the time to correct my mistake.
 
