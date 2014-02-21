@@ -1,3 +1,26 @@
+# Update - version 2.0.1
+
+As I do maintain other iron-router extensions, I wanted to make sure that iron-router-resource could benefit from them. 
+
+One in particular was the <a href="http://github.com/xpressivecode/iron-router-auth" target="_blank">iron-router-auth</a> smart package. In order to take advantage of the smart package, you need to include an extra argument
+when defining your route. So now you can add additional arguments to the `resource` method and it will carry those forward.
+
+```js
+Router.map(function(){
+   this.resource('items', {
+        createController: true,
+        loginRequired: 'sign-in'     //new feature that comes from the iron-router-auth package. previously, this and any other arguments would have been dropped, if they weren't explicitly used by the resource package.
+    }); 
+});
+```
+
+This will just help to facilitate future extensibility later on, should this package continue to be used. 
+
+# Breaking change in version 2.0.1
+
+The `create_controller` argument, is now `createController`. I'm not sure why I ever had it the previous way, and I'm sorry to anyone that has to spend the time to correct my mistake.
+
+
 # Breaking changes in version 2.* (from 1.*)
 
 The create controller argument is now part of an args object to help make it more extensible for future updates. You now need to call
