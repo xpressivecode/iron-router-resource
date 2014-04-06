@@ -3,7 +3,7 @@
   "description": "Resource routing module for iron-router",
   "homepage": "https://github.com/XpressiveCode/iron-router-resource",
   "author": "Mike Fitzgerald (https://github.com/xpressivecode)",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "git": "https://github.com/XpressiveCode/iron-router-resource.git",
   "packages": {
     "iron-router": {}
